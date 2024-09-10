@@ -4,7 +4,8 @@
 import { getModelForClass, prop } from "@typegoose/typegoose";
 
 // Product : clase con mayuscula al inicio 
-// este es para crear la instancia
+// este es para crear la instancia , 
+// al crear la tabla lo creara en plural products
 class Product{
 
     // trim:true  : quita los espaciados
@@ -20,15 +21,15 @@ class Product{
     public description : string
 
     @prop({required : true , type: () => Number , min:1 })
-    private price : number
+    public  price : number
 
     @prop({required : true , type: () => Number , min:1 })
-    private quantity : number
+    public quantity : number
 
 
     // estado del producto si esta vacio o hay stock
     @prop({required : true , type: () => String })
-    private status : string
+    public status : string
 
 
 
@@ -56,6 +57,7 @@ class Product{
 
 
 // creacion modelo a partir de una clase , acceso a la bd 
+// con esto tienes acceso a las bd sus metodos
 const ProductModel = getModelForClass(Product)
 
 // exportando
