@@ -1,0 +1,237 @@
+
+
+1. 
+  creacion proyecto > 
+C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.(presionar enter)
+package name: (backend_1)  --- nombre proyecto
+version: (1.0.0)           --- version
+description: rest api crud y login 
+entry point: (index.js)   --- file principal
+test command: test
+git repository:
+keywords:
+author: jesus HA
+license: (ISC)
+About to write to C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1\package.json:
+
+{
+  "name": "backend_1",
+  "version": "1.0.0",
+  "description": "rest api crud y login ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "jesus HA",
+  "license": "ISC"
+}
+
+Is this OK? (yes)  ---- presionar enter
+
+
+
+
+2. 
+
+instalando dependencias 
+  
+C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>npm install -g typescritp
+
+added 1 package in 2s
+
+C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>tsc --version
+Version 5.1.6
+
+
+
+3.
+  >
+     crea un file principal del back
+      app.ts
+
+   > en el package.json 
+   {
+  "name": "backend_1",
+  "version": "1.0.0",
+  "description": "rest api crud y login ",
+  "main": "app.ts",  --- cambiar esto
+  "scripts": {
+    "test": "test"
+  },
+  "author": "jesus HA",
+  "license": "ISC"
+}
+   
+
+
+ 4. 
+  
+  creandi un file de configuracion de .ts para la transpilacion
+  el .ts ayuda a mejorar los error es un js repotenciado para el uso de poo , 
+
+ C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>tsc --init 
+
+Created a new tsconfig.json with:
+
+  tsconfig.ts (file) ---dirigite al file( al lado derecho esta su descripcion de uso)
+       
+    /* Type Checking */
+    "strict": true,---- esto es para mejorar el codigo limpio       
+    "target": "es2016", ----- esto es para usar el ecmasript de js   
+    "outDir": "./dist",      ----- busca esto y decomentalo modficialo igual como este 
+                                   es para guarda el transpilado de .ts a .js
+
+    "sourceMap": true, ------ para manejadore de js      
+    "moduleResolution": "node10",  --- descomenta esto                             
+
+
+  
+
+  5.
+    ejecuta el comando crea el folder > dist
+   
+     C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>tsc
+                                               
+
+
+6. creacion de la estructura file y folders
+  
+  > src (donde se trabaja) 
+     > controllers (logica de los metodos rest)
+        > login.controller.ts
+        > user.controller.ts
+     > database  (conexion de la bd)
+         > config.ts (conexion a bd)
+     > helpers (diferentes files pa autenticar y validar el codigo)
+         jwtts --- validar token
+     > midlewaleres 
+        validateField.ts
+        validateJWT.ts
+     > models (clases guias) 
+       > server.models.ts --- principal logica del servidor
+       >login.model.ts
+       > product.model.ts
+     >routes (para routear los rest)
+       login.router.ts
+       user.routes.ts
+    >label.ts (file para mostrar mensajes al usuario)
+  > app.js   ---ejecuta todo
+  >.env    --- varibales de entorno
+
+
+
+7. 
+  variables de entorno 
+   .env valores para personalizar el Comportamiento de un api rest
+
+
+8. 
+
+   instalando dependencias >
+
+C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>npm i express
+
+C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>npm i --save-dev @types/express
+
+--- variable de entorno
+  > npm i dotenv 
+
+
+
+mapear los cambios ============
+  C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1>npm install nodemon
+
+usar proyecto de nodejs con mongodb==========
+  PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i mongoose
+
+usar .ts con mongoose===========
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i @typegoose/typegoose
+
+pa encriptar contraseñas===========
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i bcryptjs
+mezcla de .ts con bcrypt
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i --save-dev @types/bcryptjs
+
+para usar el token===========
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i jsonwebtoken
+
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i --save-dev @types/jsonwebtoken 
+
+
+
+validaciones===========================
+
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i express-validator
+
+
+para los cors o nucleos 
+\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm install cors 
+
+PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> npm i --save-dev @types/cors
+
+
+
+
+9. 
+  > comandos personalizados
+  package.json >
+    "scripts": {
+    "test": "test",
+    "tsc": "tsc --watch",  --- agregar esto pasa todo el .ts al .js
+    "start:dev:local": "nodemon ./dist/app.js" --- agregar esto nodemon solo lee .js
+  },
+
+   PARA LEVANTAR PONER ESTOS COMANDOS SIEMPRE 
+   ejecutar en terminales diferentes(cmd o poweshell) 1 el .ts y luego el nodemon
+  > npm run tsc  ---ejecuta pa tranpilar el .ts al .js
+  > npm run start:dev:local --- ejecuta con el nodemon , auto los cambios
+
+
+
+10.  BASE DE DATOS NOSQL
+ > abre mongodb
+    icono mas > crea una bd
+    database : xtechnology
+    collection : login   ---- son las tablas
+                 logins  --- al registrar creara esta tabla(lo creara en plural auto) solo se creara 1 vez ,
+                            si quieres puedes eliminar el login tabla la 1 tabla
+
+
+
+12. 
+  > autenticacion : verificar la identidad de un usuario o de una app 
+    que ingrese
+  
+  > authorization : cuando el usuario se logea solo tendra permisos en ciertas cosas o
+                   componentes     
+
+  > hash y encriptacion de datos : la contraseña no lo guarda igual si no lo almacena de diferente forma en la bd  agregandole seguridad. se usa la libreria bscrypt esto es para proteger las contraseñas.  esto defiendo ataques de fuerza bruta y de dicccionario.              
+
+  > token : cuando pide solicitud en vez de enviar usuario y contraseña , usaremos el jsonwebtoken , cuando un usuario se logea obtiene un token unico para ese usuario , luego en el head en cada solicitud le enviara eso el server lo verificara y luego le dara el pase. el token dura poco. 
+
+
+
+  13. 
+    
+    Postman : nos ayuda simular peticiones http
+    peticiones si tener frontend , 
+    la url , el tipo de metodo(put etc) , head().etc
+    reponse : la respuesta del servidor
+    postamn no ayuda a funcionar conjuntamente con api rest. desde api simples hasta api complejas
+    
+    Postman_estructura.png > imagen de la estructura del postman
+
+    codigos de estado HTTP + conocidos:
+      200 > : correcto todo OK
+      400 > : error de tu frontend
+      500 > : error del servidor 
