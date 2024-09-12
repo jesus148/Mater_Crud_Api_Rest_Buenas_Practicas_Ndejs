@@ -238,4 +238,7 @@ ver la documentacion: https://www.mongodb.com/docs/manual/reference/operator/que
       500 > : error del servidor 
 
 
+    enviando parametros desde postamn :
+     ejemplo : http://localhost:3000/api/users/create?id=u3u828i2i92  --- el id es un parametro 
+     o tambien abre postam > params > el key es el parametro y el value es el valor 
       

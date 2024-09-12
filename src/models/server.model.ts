@@ -21,9 +21,10 @@ class Server{
     private port:string
 
 
-    // paths
+    // paths de rutas
     private login_path:string
     private user_path:string
+    private product_path:string
 
 
 
@@ -37,9 +38,11 @@ class Server{
         // aplicacion express
         this.app = express();   
         
-        // reasignando
+        // reasignando rutas
+        // localhost:300+
         this.login_path='/api/login'
         this.user_path='/api/users'
+        this.product_path='/api/products'
 
         // puerto aplicacion 
         // process.env.PORT  : se ejecutara en este puerto
@@ -73,10 +76,12 @@ class Server{
     router(){
 
 
-
+        // para loguearse
         this.app.use(this.login_path , loguinRouter)
-
+        // para crear un usuario
         this.app.use(this.user_path , userRoutes )
+        // para productos crud
+        this.app.use(this.product_path , userRoutes )
     }
 
 

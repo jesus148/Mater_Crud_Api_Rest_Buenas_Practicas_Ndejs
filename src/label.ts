@@ -18,6 +18,9 @@ export default {
     EMPTY_FIELD:'Campo Requerido',
     SUCCESFUL_REGISTER:'Registro Exitoso', 
     NOT_FOUND:'No se encontraron registros',
-    SUCCESFUL_RESPONSE:'Respuesta exitosa'
+    SUCCESFUL_RESPONSE:'Respuesta exitosa',
+    SUCCESFUL_UPDATE:"actualizacion exitosa",
+    SUCCESFUL_DELETE:"Eliminacion exitosa",
+    NOT_VALID_ID:"No es un ID valido"
     
 }

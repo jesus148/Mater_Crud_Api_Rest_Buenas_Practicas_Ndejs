@@ -3,7 +3,7 @@ import { NextFunction  , Request , response, Response} from 'express';
 import {validationResult} from 'express-validator';
 import label from '../label';
 
-// controller para validar las request osea la peticiones
+// controller para validar las request osea la peticiones , verificar q no esta vacio
 
 const validateField = (req : Request , res : Response , next : NextFunction) =>{
 
@@ -11,6 +11,7 @@ const validateField = (req : Request , res : Response , next : NextFunction) =>{
 
 
         // Extrae los errores de validación de la solicitud HTTP (req). Este método verifica si alguno de los middlewares de validación (por ejemplo, chequeo de campos como email, password, etc.) ha detectado errores.
+        // Extrae los errores de validación de una solicitud y los pone a disposición en un Result Objeto
         const errors = validationResult(req);
 
 

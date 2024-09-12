@@ -21,7 +21,7 @@ export const getProducts = async ( req: Request , resp : Response)=>{
         // si esta vacio el listado
         if(products.length === 0){
             // respuesta usuario
-            resp.status(400).json({
+            resp.status(400).json({ 
                 msg:label.NOT_FOUND, 
                 products
             })
@@ -122,6 +122,80 @@ export const createProduct = async (req : Request , res: Response) =>{
 
     // si hay un error 
     }catch(error){  
+    // mensaje dev
+    console.log(error)
+
+    // mensaje usuario
+    res.status(500).json({
+    msg:label.MSG_500
+    })
+    }
+}
+
+
+
+
+
+
+
+// metodo actualizar producto
+export const updateProduct = async ( req : Request , resp : Response) =>{
+    try{
+
+        // parametro del id recibido del cliente
+        const id = req.params.id;
+
+        // desestructurando
+        // _id: 1 atributo almacena en la variable _id , esto lo separa  , pq el  id no se actualiza
+        // ...rest : el resto de atributos haz una copia dentro de la variable rest y eso si se actualiza
+        const{_id, ...rest}=req.body;
+
+        // busca por id y lo actualiza
+        // rest : variable q tiene todo el reques - el id separado 
+        const product = await Product.findByIdAndUpdate(id , rest)
+
+        // si todo esta ok  
+        resp.status(205).json({
+            // envio al front
+            msg:label.SUCCESFUL_UPDATE,
+            product
+        })
+
+        // si hay error
+    }catch(error){
+    // mensaje dev
+    console.log(error)
+
+    // mensaje usuario
+    resp.status(500).json({
+    msg:label.MSG_500
+    })
+    }
+}
+
+
+
+
+
+
+
+// metodo eliminar
+export const deleteProduct = async (req : Request , res :Response)=>{
+    try{
+        // obteniedo el parametro del id
+        const id=req.params.id;
+
+        // encuentra x id y lo elimina
+        await Product.findByIdAndDelete(id);
+
+        // respuesta al front
+        res.status(200).json({
+            // mensaje al front
+            msg:label.SUCCESFUL_DELETE,
+            id
+        })
+
+    }catch(error){
     // mensaje dev
     console.log(error)
 
