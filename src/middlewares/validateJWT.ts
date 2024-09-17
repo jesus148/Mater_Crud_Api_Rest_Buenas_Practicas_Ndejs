@@ -21,7 +21,12 @@ const validateJwt = async (req: Request , res: Response , next : NextFunction)=>
         // obteniendo el token del cliente luego de loguearse para obtener peticiones rest
         // Authorization :hsddjkksdklsdklskld > ejemplo de token del usuario guardado en Authorization que es una variable enviado x el cliente
             // queremos el 2 que es el token (hsddjkksdklsdklskld)
-        const token = req.header(label.AUTHORIZATION)?.split(' ')[1]
+
+        // const token = req.header(label.AUTHORIZATION)?.split(' ')[1]
+        
+
+        // usando sin el bearer , obtiene el valor del key AUTHORIZATION
+        const token = req.header(label.AUTHORIZATION)
 
         // si el token esta vacio
         if(!token){

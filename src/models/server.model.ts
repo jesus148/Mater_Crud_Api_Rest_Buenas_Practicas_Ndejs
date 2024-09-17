@@ -11,6 +11,7 @@ import label from '../label';
 import db_connection from '../database/config';
 import loguinRouter from '../routes/login.routes';
 import userRoutes from '../routes/user.routes';
+import productRouter from '../routes/product.routes';
 import cors from 'cors';
 
 class Server{
@@ -81,7 +82,7 @@ class Server{
         // para crear un usuario
         this.app.use(this.user_path , userRoutes )
         // para productos crud
-        this.app.use(this.product_path , userRoutes )
+        this.app.use(this.product_path , productRouter )
     }
 
 

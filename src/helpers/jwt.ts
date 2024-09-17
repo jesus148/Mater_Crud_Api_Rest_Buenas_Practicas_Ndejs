@@ -23,6 +23,7 @@ const getJwt = (uid : string)=>{
             // uid el uis es de momgodb de la collecion su id
             const payload = { uid}
 
+            //sign : es una propiedad de express pa crear token
             // process.env.SECRET_KEY  ||   ''  : pone la firma q garantiza el token or vacio si no lo encuentra
             sign(payload , process.env.SECRET_KEY  ||   '' , {
                 // tiempo q expira el token  , seugun la regle de negocio y los roles del usuario

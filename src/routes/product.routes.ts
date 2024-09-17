@@ -12,8 +12,14 @@ const router =Router();
 // ROUTES para todo productos
 
 
+
+
 // metodo obtener todo
 // "/"  : para los get all recomendable poner esto 
+// postman 
+// http://localhost:3000/api/products/ -----get
+// // postman poner : headers >  
+// //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.get( "/" , [
     // validando el token enviado desde el front 
     // si todo ok pasa al getProducts
@@ -23,7 +29,20 @@ router.get( "/" , [
 
 
 
+
+
+
+
+
 // metodo lista por precios
+// postman ---
+// http://localhost:3000/api/products/byprice   ----get 
+// {
+// "min": 3 ,
+// "max": 10
+// }   
+// // postman poner : headers >  
+// //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.get("/byprice",[
     validateJwt //valida token
     //metodo controller 
@@ -32,7 +51,21 @@ router.get("/byprice",[
 
 
 
+
+
+
+
 // metodo crear productos
+// http://localhost:3000/api/products/create   -----post(postman)
+// { 
+//     "name":"mouse",
+//     "description":"inalambrico",
+//     "price":14.50,
+//     "quantity":"5", 
+//     "status":"nuevo"
+// } 
+// // postman poner : headers >  
+// //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.post( "/create" ,[
     validateJwt, //valida token
     validateField //valida campos request front
@@ -42,9 +75,17 @@ router.post( "/create" ,[
 
 
 
+
+
+
+
+
+
+
+
 // metodo para actualizar
 // :id = es el parametro
-router.put("/update:id",[
+router.put("/update/:id",[
      validateJwt, //validat token 
     //  valiacion con check usando el :id parametro 
     //  verifica si el id de producto corresponde a un id de la collecion de mongodb
@@ -60,7 +101,7 @@ router.put("/update:id",[
     
     // metodo elimina
     // check: su función es validar ciertos campos en la solicitud HTTP antes de que se ejecuten los controladores (en este caso, deleteProduct).
-router.delete( '/delete:id',[
+router.delete( '/delete/:id',[
     // verifica todo esto validaciones despued ejecuta el deletproduct
     validateJwt, //validat token 
     //  valiacion con check usando el :id parametro 
