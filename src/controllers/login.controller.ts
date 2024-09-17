@@ -38,7 +38,7 @@ const login = async ( req: Request , res: Response)=>{
             })
         }
 
-        // verificar el estado
+        // verificar el estado s
         // si el usuario tiene el estado activo , osea si no tiene estado se queda aca
         // x buenas practicas no retornes que ha fallado solo dale una pista
         if(!user._status){
