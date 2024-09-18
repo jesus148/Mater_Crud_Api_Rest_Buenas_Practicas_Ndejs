@@ -140,6 +140,9 @@ export const createProduct = async (req : Request , res: Response) =>{
 
 // metodo actualizar producto
 export const updateProduct = async ( req : Request , resp : Response) =>{
+
+    console.log("test");
+
     try{
 
         // parametro del id recibido del cliente
@@ -155,7 +158,7 @@ export const updateProduct = async ( req : Request , resp : Response) =>{
         const product = await Product.findByIdAndUpdate(id , rest)
 
         // si todo esta ok  
-        resp.status(205).json({
+        resp.status(200).json({
             // envio al front
             msg:label.SUCCESFUL_UPDATE,
             product
@@ -172,6 +175,11 @@ export const updateProduct = async ( req : Request , resp : Response) =>{
     })
     }
 }
+
+
+
+
+
 
 
 

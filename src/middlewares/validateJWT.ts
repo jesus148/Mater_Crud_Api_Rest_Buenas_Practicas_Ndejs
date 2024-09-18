@@ -28,6 +28,9 @@ const validateJwt = async (req: Request , res: Response , next : NextFunction)=>
         // usando sin el bearer , obtiene el valor del key AUTHORIZATION
         const token = req.header(label.AUTHORIZATION)
 
+        
+
+
         // si el token esta vacio
         if(!token){
             // retorna al cliente
@@ -46,7 +49,8 @@ const validateJwt = async (req: Request , res: Response , next : NextFunction)=>
         const user = await Login.findById(uid);
 
 
-        // si el usuario no existe
+        console.log(user);
+        // sistatesuario no existe
         if(!user){
             return res.status(401).json({
                 msg:label.TOKEN_FAILED

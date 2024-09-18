@@ -10,7 +10,7 @@ class Product{
 
     // trim:true  : quita los espaciados
     // type:() => String : tipos de datos 
-    // required:true  : requerido
+    // required:true  : requerido   
     // min:1 : para numeros > 1
 
 

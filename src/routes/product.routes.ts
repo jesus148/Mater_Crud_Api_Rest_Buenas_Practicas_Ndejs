@@ -86,10 +86,11 @@ router.post( "/create" ,[
 // metodo para actualizar
 // :id = es el parametro
 router.put("/update/:id",[
+
      validateJwt, //validat token 
     //  valiacion con check usando el :id parametro 
     //  verifica si el id de producto corresponde a un id de la collecion de mongodb
-     check('id' , label.NOT_VALID_ID).isMongoId, //el id es correspondiente a mongodb, si no es lanzara el mensaje
+     check('id' , label.NOT_VALID_ID).isMongoId(), //el id es correspondiente a mongodb, si no es lanzara el mensaje
      check('id').custom(productExist) ,//llama al metodo productExist , verifica si el producto existe en la bd
      validateField //validando los request del front
     ] , updateProduct) //llama al metodo final
@@ -97,6 +98,10 @@ router.put("/update/:id",[
 
 
 
+
+
+
+    
 
     
     // metodo elimina

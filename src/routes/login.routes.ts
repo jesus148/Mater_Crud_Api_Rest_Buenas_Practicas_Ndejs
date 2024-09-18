@@ -29,7 +29,7 @@ const router = Router()
 
 // 2 forma de hacerlo
 // validateField : es un validator pa verificar los request de las peticiones
-// http://localhost:3000/api/login  ---post
+// http://localhost:3000/api/login/  ---post
 // {
 //   "username": "administrador",
 //   "password": "1232344"
