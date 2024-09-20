@@ -21,6 +21,6 @@ export default {
     SUCCESFUL_RESPONSE:'Respuesta exitosa',
     SUCCESFUL_UPDATE:"actualizacion exitosa",
     SUCCESFUL_DELETE:"Eliminacion exitosa",
-    NOT_VALID_ID:"No es un ID valido"
-    
+    NOT_VALID_ID:"No es un ID valido",
+    ROLE_NOT_PERMISSIONS:"Su rol no cumple con los permisos para realizar esta acción"
 }

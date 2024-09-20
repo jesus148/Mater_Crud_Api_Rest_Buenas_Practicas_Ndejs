@@ -67,8 +67,9 @@ const login = async ( req: Request , res: Response)=>{
 
         // creando un token 
         // user._id del usuario clase modelo toma el _id de la coleccion no esta en la clase modelo y lo convierte a string
+        // user._role y se le envia el role del usuario 
         // creacion del token , getJwt es una clase q crea el token
-        const token = await getJwt(String(user._id))
+        const token = await getJwt(String(user._id) , user._role)
 
         // todo exitoso
         res.status(200).json({

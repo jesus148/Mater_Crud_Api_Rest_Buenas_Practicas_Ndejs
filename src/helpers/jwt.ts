@@ -9,8 +9,9 @@ import label from '../label';
 // cuando pide solicitud en vez de enviar usuario y contraseña , usaremos el jsonwebtoken , cuando un usuario se logea obtiene un token unico para ese usuario , luego en el head en cada solicitud le enviara eso el server lo verificara y luego le dara el pase. el token dura poco. 
 
 
-            //    el id de la collecion de la tabla en mongo se recibe como parametro
-const getJwt = (uid : string)=>{
+            //    el id o uid de la collecion de la tabla en mongo se recibe como parametro
+            // y el role 
+const getJwt = (uid : string , role : string  )=>{
 
     // ok
     try{
@@ -20,8 +21,8 @@ const getJwt = (uid : string)=>{
         return new Promise( (resolve , reject)=>{
 
             //info del usuario o payload ,no poner datos confidenciales
-            // uid el uis es de momgodb de la collecion su id
-            const payload = { uid}
+            // uid el uis es de momgodb de la collecion su id y el role
+            const payload = { uid , role}
 
             //sign : es una propiedad de express pa crear token
             // process.env.SECRET_KEY  ||   ''  : pone la firma q garantiza el token or vacio si no lo encuentra

@@ -15,6 +15,7 @@ const validateField = (req : Request , res : Response , next : NextFunction) =>{
         const errors = validationResult(req);
 
 
+        // verficando q el request no tenga campos vacios
         // verificando si hay errores
         // errors.isEmpty(): Si no se detectan errores, isEmpty() será true. Si hay errores, será false.
         if(!errors.isEmpty){

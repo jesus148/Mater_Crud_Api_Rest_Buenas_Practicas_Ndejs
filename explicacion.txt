@@ -201,11 +201,14 @@ PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> 
 
 10.  BASE DE DATOS NOSQL
  > abre mongodb
-    icono mas > crea una bdz
+    icono mas > crea una bd
     database : xtechnology
-    collection : login   ---- son las tablas
+    collection : 
+                 login   ---- son las tablas(crea esta tabla)
                  logins  --- al registrar creara esta tabla(lo creara en plural auto) solo se creara 1 vez ,
                             si quieres puedes eliminar el login tabla la 1 tabla
+                 product  -----  crea la tabla si es nesecario      
+                        
 > cualquier consulta del ORM usado aqui en este proyecto osea consultas de mongo 
 ver la documentacion: https://www.mongodb.com/docs/manual/reference/operator/query/lte/
 
