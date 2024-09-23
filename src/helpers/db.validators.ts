@@ -18,7 +18,7 @@ export const productExist = async ( id: string) =>{
         console.log(error)
 
         // genera un error
-        throw new Error("el servidor fallo")
+        throw new Error("el servidor fallo ")
 
     }
 }

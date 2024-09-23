@@ -74,7 +74,7 @@ const validateJwt = (roleToValidate? : string) =>{
             // user._role : rol del usuario q se logueo es diferente al rol q nesecita el usuario para realizar esta accion que es el roleToValidate
             // roleToValidate : rol que nesecita pa hacer una accion y tampoco es admin
             // roleToValidate : tenga un valor y no este vacio
-            if(user._role !== roleToValidate && user._role !== "admin" && roleToValidate){
+            if(user._role !== roleToValidate && user._role !== "ADMIN" && roleToValidate){
                 return res.status(401).json({
                     msg:label.ROLE_NOT_PERMISSIONS,
                     role:user._role
@@ -103,6 +103,10 @@ const validateJwt = (roleToValidate? : string) =>{
 
 }
 
+
+// tip:
+// https://jwt.io/
+// pagina para desarmar y ver la estructura de un token enviado del front
 
 
 // exportando pa usar afuera

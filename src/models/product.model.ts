@@ -23,8 +23,8 @@ class Product{
     @prop({required : true , type: () => Number , min:1 })
     public  price : number
 
-    @prop({required : true , type: () => Number , min:1 })
-    public quantity : number
+        @prop({required : true , type: () => Number , min:1 })
+        public quantity : number
 
 
     // estado del producto si esta vacio o hay stock

@@ -18,11 +18,12 @@ const validateField = (req : Request , res : Response , next : NextFunction) =>{
         // verficando q el request no tenga campos vacios
         // verificando si hay errores
         // errors.isEmpty(): Si no se detectan errores, isEmpty() será true. Si hay errores, será false.
-        if(!errors.isEmpty){
+        if(!errors.isEmpty()){
             // respuesta al usuario
             return res.status(400).json({
                 msg:label.EMPTY_FIELD,
-                errors
+                errors 
+       
             })
         }   
 
@@ -35,6 +36,7 @@ const validateField = (req : Request , res : Response , next : NextFunction) =>{
     }catch(error){
         // error dev
         console.log(error);
+
 
         // error usuario
         res.status(500).json({

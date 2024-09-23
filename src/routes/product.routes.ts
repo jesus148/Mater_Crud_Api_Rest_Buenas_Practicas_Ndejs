@@ -23,7 +23,7 @@ const router =Router();
 router.get( "/" , [
     // validando el token enviado desde el front 
     // si todo ok pasa al getProducts
-    validateJwt('SUPER') //solo los usarios con TEC rol podran usar este metodo y los admin
+    validateJwt('TEC') //solo los usarios con TEC rol podran usar este metodo y los admin
 ], getProducts )  
 
 
@@ -44,7 +44,7 @@ router.get( "/" , [
 // // postman poner : headers >  
 // //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.get("/byprice",[
-    validateJwt() //valida token
+    validateJwt() //valida token , cualquier rol usuario pero q exista
     //metodo controller 
 ] ,getProductsByPrice )
 
@@ -70,7 +70,7 @@ router.get("/byprice",[
 // // postman poner : headers >  
 // //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.post( "/create" ,[
-    validateJwt(), //valida token
+    validateJwt("SUPER"), //valida token ,solo usuarios super o admin con rol
     validateField //valida campos request front
     // todo ok pasa al metodo pa crear
 ], createProduct)
@@ -97,21 +97,20 @@ router.post( "/create" ,[
 // } 
 // // postman poner : headers >  
 // //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
-// :id = es el parametro
-router.put("/update/:id",[
-
-     validateJwt(), //validat token 
-    //  valiacion con check usando el :id parametro 
-    //  verifica si el id de producto corresponde a un id de la collecion de mongodb
-     check('id' , label.NOT_VALID_ID).isMongoId(), //el id es correspondiente a mongodb, si no es lanzara el mensaje
-     check('id').custom(productExist) ,//llama al metodo productExist , verifica si el producto existe en la bd
-     validateField //validando los request del front
-    ] , updateProduct) //llama al metodo final
-
+    // :id = es el parametro
+    router.put('/update/:id',[
+        validateJwt(), //validat token , cualquier rol usuario pero q exista
+        //  valiacion con check usando el :id parametro 
+        //  verifica si el id de producto corresponde a un id de la collecion de mongodb , estos errores salen juntos
+        check('id', label.NOT_VALID_ID).isMongoId(), //el id es correspondiente a mongodb, si no es lanzara el mensaje
+        check('id').custom(productExist),//llama al metodo productExist , verifica si el producto existe en la bd
+        validateField //validando los request del front
+        ] , updateProduct) //llama al metodo final
 
 
 
 
+    
 
 
     
@@ -124,7 +123,7 @@ router.put("/update/:id",[
     // check: su función es validar ciertos campos en la solicitud HTTP antes de que se ejecuten los controladores (en este caso, deleteProduct).
 router.delete( '/delete/:id',[
     // verifica todo esto validaciones despued ejecuta el deletproduct
-    validateJwt, //validat token 
+    validateJwt(), //validat token 
     //  valiacion con check usando el :id parametro 
     //  verifica si el id de producto corresponde a un id de la collecion de mongodb
      check('id' , label.NOT_VALID_ID).isMongoId(), //el id es correspondiente a mongodb, si no es lanzara el mensaje
