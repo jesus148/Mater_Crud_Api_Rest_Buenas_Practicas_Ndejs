@@ -10,6 +10,7 @@ import { productExist } from "../helpers/db.validators";
 const router =Router();
 
 // ROUTES para todo productos
+// probando errores con cada metodo de arriba hacia abajo
 
 
 

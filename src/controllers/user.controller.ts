@@ -13,7 +13,7 @@ import label from '../label';
 // exportando nombrada varias
 export const createUser = async (req : Request , resp: Response) => {
 
-    console.log("test");
+
     try{
 
         // desenvolsando el request

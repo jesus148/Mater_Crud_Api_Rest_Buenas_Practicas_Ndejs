@@ -246,3 +246,162 @@ ver la documentacion: https://www.mongodb.com/docs/manual/reference/operator/que
      ejemplo : http://localhost:3000/api/users/create?id=u3u828i2i92  --- el id es un parametro 
      o tambien abre postam > params > el key es el parametro y el value es el valor 
       
+
+
+
+
+
+
+   14. 
+      probando errrores y verificando q existan , osea que las validaciones o midlewaleres funcionen
+        
+        1. put > 
+        
+        1.1 http://localhost:3000/api/products/update/1
+         { 
+    "name":"keyboard",
+    "description":"teclado",
+    "price":7.4,
+    "quantity":5,       
+    "status":"new"
+       } 
+      response :
+         {
+    "msg": "Campo Requerido",
+    "errors": {
+        "errors": [
+            {
+                "type": "field",
+                "value": "1",
+                "msg": "No es un ID valido",
+                "path": "id",
+                "location": "params"
+            },
+            {
+                "type": "field",
+                "value": "1",
+                "msg": "el servidor fallo ",
+                "path": "id",
+                "location": "params"
+            }
+        ]
+    }
+}
+
+
+ respuesta el id no es de mongodb 
+
+
+ 1.2  http://localhost:3000/api/products/update/66e8eec8834924a9f3e815a2(idnoesvalido)
+ { 
+    "name":"keyboard",
+    "description":"teclado",
+    "price":7.4,
+    "quantity":5,       
+    "status":"new"
+} 
+{
+    "msg": "Campo Requerido",
+    "errors": {
+        "errors": [
+            {
+                "type": "field",
+                "value": "66e8eec8834924a9f3e815a2",
+                "msg": "el servidor fallo ",
+                "path": "id",
+                "location": "params"
+            }
+        ]
+    }
+}
+
+pq el id no es valido verificar tambien en la consola del vscode
+
+
+
+2. DELETE
+  2.1 
+    http://localhost:3000/api/products/delete/1 
+    {
+    "msg": "Campo Requerido",
+    "errors": {
+        "errors": [
+            {
+                "type": "field",
+                "value": "1",
+                "msg": "No es un ID valido",
+                "path": "id",
+                "location": "params"
+            },
+            {
+                "type": "field",
+                "value": "1",
+                "msg": "el servidor fallo ",
+                "path": "id",
+                "location": "params"
+            }
+        ]
+    }
+}
+
+pq el id no es de mongodb
+
+2.2 
+ http://localhost:3000/api/products/delete/66e8eec8834924a9f3e815a6
+ {
+    "msg": "Campo Requerido",
+    "errors": {
+        "errors": [
+            {
+                "type": "field",
+                "value": "66e8eec8834924a9f3e815a6",
+                "msg": "el servidor fallo ",
+                "path": "id",
+                "location": "params"
+            }
+        ]
+    }
+}
+el id es valido pero no existe 
+
+
+
+
+
+
+
+
+15. Cors 
+   creado por los navegadores web para compartir diferentes datos entre diferentes origenes , el navegador permite o bloquea 
+   solicitudes entre diferentes dominios.
+   si no se configuran los head se puede bloquear
+   al configurar nuestra api permitimos que diferentes dominios realizen peticiones a la api de manera segura
+   los cors son importantes
+   en pocas palabras es un mecanismo de seguridad fue implementando por los navegadores web para controlar las solicitudes 
+   diferentes dominios , puede afectar en la manera como interactuamos con la api rest.
+   debes configurar los cors correctamente desde el backend
+
+
+
+16. 
+ MONGODB ATLAS
+  servicios de bd de mongodb en la nube , es nosql. guarda en formato json. es escalable y flexible.
+  con mongodbatlas no nesecitas configurar nada.solo te centras en tu aplicacion. es escalable manejar 
+  grandes volumenes de datos. como esta en la nube no hay perdidas de datos. puede monitorear y configurar las
+  copias de seguridad.
+  La base de datos como servicio (DBaaS) es un servicio que le permite configurar, implementar y escalar una base de datos sin preocuparse por el hardware físico local, las actualizaciones de software y los detalles de configuración para el rendimiento. Con DBaaS, un proveedor de nube hace todo eso por usted y lo pone en funcionamiento de inmediato.
+
+    > ver la configuracion
+         > MongodbAtlas.txt
+
+    > https://www.c-sharpcorner.com/article/how-to-create-an-mongodb-atlas-account/ --- pasos 
+        ingresar mi cuenta    
+
+    > Deploy your cluster
+         > M2  --- es gratis
+         > name    --recordar y PONER 
+            ejemplo : jesus
+         > todo x defecto
+         > regios > south america
+         > luego aparecera un modal recordar esos datos del clouster
+             contraseña y password

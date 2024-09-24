@@ -1,0 +1,64 @@
+
+
+usando mongodb atlas , es basicamente que la bd este en la nube  todo tu data estara en la nube de mongo
+ademas puedes usar mongodbcompass la interfaz para poder visualizar tambien puedes verlo en la pagina de mongodbatlas 
+
+
+1.
+    > ver la configuracion
+         > MongodbAtlas.txt
+
+    > https://www.c-sharpcorner.com/article/how-to-create-an-mongodb-atlas-account/ --- pasos 
+        ingresar mi cuenta    
+
+    > Deploy your cluster
+         > M2  --- es gratis
+         > name    --recordar y PONER 
+            ejemplo : jesus
+         > todo x defecto
+         > regios > south america
+         > luego aparecera un modal recordar esos datos del clouster
+             contraseña y password
+
+
+
+
+2 . data services > la parte de arriba
+
+3 .  parte izquierda > network acces
+    > icono mas (add ip addres)
+    >allow acces from anywhere
+       se completa solo > confirm
+    > parte izquierda 
+       database > create   
+       > en ciertos casos eligiras M0 free o si no dale continue
+
+    > overview > clusters > elige tu cluster 
+       >connect > (acces your data trought tools)compass
+       > Copy the connection string, then open MongoDB Compass
+         ejemplo : copia eso
+          mongodb+srv://jorgecop149:<db_password>@jesus.gppah.mongodb.net/
+
+
+   > data acces - dirigite ahi
+       + add new database user 
+
+       > Password Authentication
+         pon un usuario (guardalo)
+         y autogenerate secure password (guardalo)
+        > built role : select role - atlas admin 
+        > add user 
+               jorgecop149 : es el usuario 
+               jC93rV4HEIP9xRTE : es el password
+               mongodb+srv://jorgecop149:jC93rV4HEIP9xRTE@jesus.gppah.mongodb.net/
+               ----eso deberas copiar en el mongodbcompass para la conexion y tendras acceso a la bd en la nube
+        > para ver la interfaz como mongodb  en la pagina de mongoatlas 
+           > selecciona clusters 
+           > browser collections        
+    
+        > cambiando la conexion en tu proyecto de express 
+           .env 
+           
+           # MONGOATLAS , 
+           xtechnology es la bd se creara x defecto al conectarse
+          CONNECTION_DB_MONGODB="mongodb+srv://jorgecop149:jC93rV4HEIP9xRTE@jesus.gppah.mongodb.net/xtechnology"   
