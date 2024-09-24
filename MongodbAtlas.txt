@@ -1,0 +1,32 @@
+
+
+usando mongodb atlas 
+
+1.
+    > ver la configuracion
+         > MongodbAtlas.txt
+
+    > https://www.c-sharpcorner.com/article/how-to-create-an-mongodb-atlas-account/ --- pasos 
+        ingresar mi cuenta    
+
+    > Deploy your cluster
+         > M2  --- es gratis
+         > name    --recordar y PONER 
+            ejemplo : jesus
+         > todo x defecto
+         > regios > south america
+         > luego aparecera un modal recordar esos datos del clouster
+             contraseña y password
+
+
+
+
+2 . data services > la parte de arriba
+
+3 .  parte izquierda > network acces
+    > icono mas (add ip addres)
+    >allow acces from anywhere
+       se completa solo > confirm
+    > parte izquierda 
+       database > create   
+       > en ciertos casos eligiras M0 free o si no dale continue

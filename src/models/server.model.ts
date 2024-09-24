@@ -90,9 +90,20 @@ class Server{
 
 
     // Para las cors y formatear data
+    // los cors solo se usa para app web o etc . en el postman no es nesecario
     middlewares(){
+
     // cors para q cualquier front pueda realizar peticiones a tu servidor
-    this.app.use(cors())
+    // con esto cualquier front puede hacer peticiones y eso no es recomendable
+    // this.app.use(cors())
+
+
+    // solo ciertos front podra hacer solicitudes en este caso 1 
+    const allowedOrigins = process.env.ALLOWED_CORS || '' ; //el port del front en una const
+    // origin : definir una ruta del front solo esa podra hacer solicitudes a este back
+    this.app.use(cors({origin :allowedOrigins})) //se usa el cors con el origin
+
+
     // formatea los request y los response en un formato json para el cliente o el servidor
         this.app.use(express.json())
     }

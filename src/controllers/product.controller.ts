@@ -139,6 +139,8 @@ export const createProduct = async (req : Request , res: Response) =>{
 
 
 // metodo actualizar producto
+// recordar q pueden haber validaciones dentro de este metodo segun el desarollador ,
+// como nombre producto no se repita .etc
 export const updateProduct = async ( req : Request , resp : Response) =>{
 
     console.log("test");
