@@ -1,13 +1,15 @@
 
 
 import Product from '../models/product.model';
-// validar si el producto existe
+
+// validar si el producto existe , el id debe tener una estrucutra de monngo
 
 export const productExist = async ( id: string) =>{
     try{
         // busca el producto
         const idDb = await Product.findById(id);
 
+        console.log(idDb);
         // producto vacio
         if(!idDb){
             // genera un error

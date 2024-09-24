@@ -20,7 +20,7 @@ const router = Router();
 // }
 router.post('/create',[
     // validaciones , si es todo ok pasa al createUser
-     validateJwt() ,  // comentar esto si agregar un admin x 1 vez
+     validateJwt() ,  // comentar esto si agregar un admin x 1 vez o usuario
     validateField
     // metodo controller pa crear usuario
 ] ,createUser);
