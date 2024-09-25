@@ -477,3 +477,58 @@ MANERA PROFESIONAL===============================
 
         git rm -r --cached .env    --- para un file
         git rm -r --cached dist  --- para una carpeta
+
+
+
+18.
+  DEPLOY PRODUCCION 
+  subiendo el proyecto a un servidor 
+
+  > en el package.json 
+     "scripts": {
+    "test": "test",
+    "tsc": "tsc --watch",
+    "build": "tsc",   ---- agregagremos esto tambien pa ejecutar en la pagina de render
+    "start:dev:local": "nodemon ./dist/app.js",
+    "start:prod":"node ./dist/app.js"  -------- agregar esto , en produccion ya no habra cambios x eso ya no se usa el nodemon
+                                              solo se ejecuta 1 vez
+  }, 
+
+
+  > ejecutar x ultima vez 
+      npm run tsc 
+
+  > ejecuta el comando para el produccion 
+     npm run start:prod    
+
+  > poner git add , commit y push recordar
+
+  > entra a esa pagina , y debes loguearte  
+   https://dashboard.render.com/
+
+     > dentro de la pagina
+     dashboard >  web services >new web services
+     >git provide > github 
+        > authurozi render en el modal q aparece
+        > el modal install render 
+            > selecciona solo el only select repositories
+            > en el combo select repositories busca tu repositorio
+        > poner install    y pon tu contraseñas
+        > git provider elige tu repo  y pon connect
+     
+     > aparece una nueva pagina 
+       Configure and deploy your new Web Service 
+          > source code : aparece tu repo
+          > name : poner nombre 
+          >languaje : poner node ---depende de tu proyecto 
+          > branch : segun git en este caso es master 
+          > Root Directory : src      ---- donde esta la fuente
+          >Build Command :   npm i          ----- pa construir 
+          >Start Command :  npm run start:prod    ----- comando inicia en produccion
+          > For hobby projects
+              plan free (el primero)
+          > Environment Variables
+             poner las variables de entorno de tu .env 
+             puedes hacerlo manualmente o importar el file    
+
+     > deply web service        

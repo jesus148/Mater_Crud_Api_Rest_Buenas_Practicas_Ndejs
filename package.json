@@ -6,7 +6,9 @@
   "scripts": {
     "test": "test",
     "tsc": "tsc --watch",
-    "start:dev:local": "nodemon ./dist/app.js"
+    "build": "tsc", 
+    "start:dev:local": "nodemon ./dist/app.js",
+    "start:prod":"node ./dist/app.js"
   },
   "author": "jesus HA",
   "license": "ISC",
