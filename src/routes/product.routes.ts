@@ -24,7 +24,7 @@ const router =Router();
 router.get( "/" , [
     // validando el token enviado desde el front 
     // si todo ok pasa al getProducts
-    validateJwt('TEC') //solo los usarios con TEC rol podran usar este metodo y los admin
+    validateJwt('SUPER') //solo los usarios con SUPER rol podran usar este metodo y los admin
 ], getProducts )  
 
 
@@ -72,7 +72,7 @@ router.get("/byprice",[
 // //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.post( "/create" ,[
     validateJwt("SUPER"), //valida token ,solo usuarios super o admin con rol
-    validateField //valida campos request front
+    validateField  //validando los request si hay errores
     // todo ok pasa al metodo pa crear
 ], createProduct)
 
@@ -105,7 +105,7 @@ router.post( "/create" ,[
         //  verifica si el id de producto corresponde a un id de la collecion de mongodb , estos errores salen juntos
         check('id', label.NOT_VALID_ID).isMongoId(), //el id es correspondiente a mongodb, si no es lanzara el mensaje
         check('id').custom(productExist),//llama al metodo productExist , verifica si el producto existe en la bd
-        validateField //validando los request del front
+        validateField //validando los request si hay errores
         ] , updateProduct) //llama al metodo final
 
 
@@ -129,7 +129,7 @@ router.delete( '/delete/:id',[
     //  verifica si el id de producto corresponde a un id de la collecion de mongodb
      check('id' , label.NOT_VALID_ID).isMongoId(), //el id es correspondiente a mongodb, si no es lanzara el mensaje
      check('id').custom(productExist) ,//llama al metodo productExist , verifica si el producto existe en la bd
-     validateField //validando los request del front
+     validateField  //validando los request si hay errores
 ], deleteProduct) //eliminado producto
 
 

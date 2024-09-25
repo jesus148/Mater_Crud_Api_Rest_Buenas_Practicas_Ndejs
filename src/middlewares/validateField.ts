@@ -7,13 +7,15 @@ import label from '../label';
 
 const validateField = (req : Request , res : Response , next : NextFunction) =>{
 
+
+
     try{
 
+    
 
         // Extrae los errores de validación de la solicitud HTTP (req). Este método verifica si alguno de los middlewares de validación (por ejemplo, chequeo de campos como email, password, etc.) ha detectado errores.
         // Extrae los errores de validación de una solicitud y los pone a disposición en un Result Objeto
         const errors = validationResult(req);
-    
 
 
         // verficando q el request no tenga errores

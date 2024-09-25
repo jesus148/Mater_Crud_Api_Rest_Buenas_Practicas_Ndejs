@@ -3,6 +3,7 @@ import {Router} from 'express';
 import validateJwt from '../middlewares/validateJWT';
 import { validateField } from '../middlewares/validateField';
 import { createUser } from '../controllers/user.controller';
+import { valideteFieldEmpty } from '../middlewares/validateEmpty';
 
 // router para crear un usuario
 // pa crear un usuario debe tener el permiso del administrador  
@@ -13,16 +14,18 @@ const router = Router();
 
 // metodo crear 1 usuario admin x primera vez 
 // no usar los headers desmarcalo
-// http://localhost:3000/api/users/create---póst
+// http://localhost:3000/api/users/create ---póst
 // {
 //     "username": "administrador",
-//     "password": "1232344",
+//     "password": "1232344", 
 //     "role": "ADMIN"
-// }
+// }    
 router.post('/create',[
     // validaciones , si es todo ok pasa al createUser
-     validateJwt() ,  // comentar esto si agregar un admin x 1 vez o usuarios
-    validateField
+     validateJwt('ADMIN') ,  // comentar esto si agregar un admin x 1 vez o usuarios ,solo create user los admin    
+
+     valideteFieldEmpty ,  //check empty
+    validateField // check errros request
     // metodo controller pa crear usuario
 ] ,createUser);
 

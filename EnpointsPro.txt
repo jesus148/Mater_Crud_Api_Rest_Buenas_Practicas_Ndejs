@@ -1,7 +1,7 @@
 
 
 ---loguin 
-https://mater-crud-api-rest-buenas-practicas.onrender.com/api/login
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/login ---post 
 {
     "username": "administrador",
     "password": "1232344"
@@ -14,8 +14,17 @@ response
     "expiresIn": 3600
 }
 
+--create user 
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/users/create  --post
+{
+    "username": "tecnico",
+    "password": "232233",
+    "role": "TEC"
+}
+>headers > AUTHORIZATION > token 
+
 ---create product
-https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/create
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/create --- post 
 { 
     "name":"taza",
     "description":"porcelana",
@@ -26,15 +35,19 @@ https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/create
 >headers > AUTHORIZATION > token 
 
 ----- get all products
-https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/  ---get
 >headers > AUTHORIZATION > token 
 
 
----get products x precio
-https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/byprice
+---get products x precio   
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/byprice  ---get
+// {
+// "min": 3 ,
+// "max": 10
+// }   
 >headers > AUTHORIZATION > token 
 
---- delete x id product
+--- delete x id product   ---- delete
 https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/delete/66f36cfad10696ff324fc9b9
 >headers > AUTHORIZATION > token 
 response 
@@ -43,7 +56,7 @@ response
     "id": "66f36cfad10696ff324fc9b9"
 }
 
---- put product 
+--- put product  ----put
 https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/update/66f36cd7d10696ff324fc9b6 
 { 
     "name":"liverpool",
