@@ -11,7 +11,7 @@ export const productExist = async ( id: string) =>{
 
         // producto vacio   
         if(!idDb){
-            // genera un error por lo tanto ejecuta el catch , este error se imprime en clg del catch
+            // genera un error por lo tanto ejecuta el catch , este error se imprime en clg del catchdb.validators.ts
             throw new Error("el producto con id : " + id + "no existe")
         }
     }catch(error){

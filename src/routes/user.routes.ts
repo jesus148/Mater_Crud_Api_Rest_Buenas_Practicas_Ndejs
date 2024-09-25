@@ -12,6 +12,7 @@ const router = Router();
 
 
 // metodo crear 1 usuario admin x primera vez 
+// no usar los headers desmarcalo
 // http://localhost:3000/api/users/create---póst
 // {
 //     "username": "administrador",

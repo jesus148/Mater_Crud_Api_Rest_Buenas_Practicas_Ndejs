@@ -1,8 +1,12 @@
 
+MONGODBATLAS
 
 usando mongodb atlas , es basicamente que la bd este en la nube  todo tu data estara en la nube de mongo
 ademas puedes usar mongodbcompass la interfaz para poder visualizar tambien puedes verlo en la pagina de mongodbatlas 
 
+
+
+1 FORMA DE HACERLO + FACIL=================================================
 
 1.
     > ver la configuracion
@@ -11,7 +15,11 @@ ademas puedes usar mongodbcompass la interfaz para poder visualizar tambien pued
     > https://www.c-sharpcorner.com/article/how-to-create-an-mongodb-atlas-account/ --- pasos 
         ingresar mi cuenta    
 
+    > ingresa a mongo atlas 
+      https://www.mongodb.com/es/cloud/atlas/register    > iniciar sesion
+                  
     > Deploy your cluster
+    clouster : Un clúster es simplemente un servidor que le permite crear y mantener múltiples bases de datos de MongoDB
          > M2  --- es gratis
          > name    --recordar y PONER 
             ejemplo : jesus
@@ -19,19 +27,14 @@ ademas puedes usar mongodbcompass la interfaz para poder visualizar tambien pued
          > regios > south america
          > luego aparecera un modal recordar esos datos del clouster
              contraseña y password
+         > si esta creado aparecera  en el overview y en el clusters   
 
 
 
 
 2 . data services > la parte de arriba
 
-3 .  parte izquierda > network acces
-    > icono mas (add ip addres)
-    >allow acces from anywhere
-       se completa solo > confirm
-    > parte izquierda 
-       database > create   
-       > en ciertos casos eligiras M0 free o si no dale continue
+3 .  
 
     > overview > clusters > elige tu cluster 
        >connect > (acces your data trought tools)compass
@@ -40,7 +43,7 @@ ademas puedes usar mongodbcompass la interfaz para poder visualizar tambien pued
           mongodb+srv://jorgecop149:<db_password>@jesus.gppah.mongodb.net/
 
 
-   > data acces - dirigite ahi
+   > database acces - dirigite ahi
        + add new database user 
 
        > Password Authentication
@@ -52,13 +55,82 @@ ademas puedes usar mongodbcompass la interfaz para poder visualizar tambien pued
                jC93rV4HEIP9xRTE : es el password
                mongodb+srv://jorgecop149:jC93rV4HEIP9xRTE@jesus.gppah.mongodb.net/
                ----eso deberas copiar en el mongodbcompass para la conexion y tendras acceso a la bd en la nube
-        > para ver la interfaz como mongodb  en la pagina de mongoatlas 
+        > para ver la interfaz como mongodbcompass  en la pagina de mongoatlas 
            > selecciona clusters 
            > browser collections        
     
-        > cambiando la conexion en tu proyecto de express 
-           .env 
-           
+        > cambiando la conexion en tu proyecto de express en la variables de entorno  , pegar la conexion nueva de arriba
+           .env (file)
            # MONGOATLAS , 
-           xtechnology es la bd se creara x defecto al conectarse
+           xtechnology es la bd se creara x defecto al conectarse y     al conectarte las colecciones se crean auto
           CONNECTION_DB_MONGODB="mongodb+srv://jorgecop149:jC93rV4HEIP9xRTE@jesus.gppah.mongodb.net/xtechnology"   
+
+
+
+
+
+
+
+
+
+2 FORMA DE HACERLO + tambien se puede =================================================
+
+1. 
+   > ya tienes que tener tu clouster o sea solo registrate y sigue estos pasos
+
+2. 
+  > network acces > + add ip addres
+
+  > allow acces from anywhere  > se autocompleta solo
+     >confirm
+    con esto puedes conectar de diferentes localidad.etc 
+
+3. dirigite al data service o data base    
+    > build a database
+    > elige M0 free
+    > name : poner y recordar
+    > marcar las 2 opciones automate y add sample
+    > selecciona el aws
+    > region : sao paulo
+        > create Deployment marcar
+
+4. security quickstart > saldra eso    
+    > how would yuo like to autenticacion?    
+    > selecciona username and password
+    > username y password : poner y recordar 
+        el password puede autogenerarlo o editarlo , debe tener varios caracteres
+    > create user    
+    > where would you like to connect from ?
+       my local enviromment -- seleccionamos eso si usaremos mongodbcompas la interfaz local
+    > add entries to your ip acces list 
+       ip acces list > solo poner el ip autogenerado arriba   
+    > finish and close  -- marcar
+    > congratulations  --- go to database     
+
+5. database deplyments saldra eso 
+   database o dataservices 
+   > saldra tu clouster con su nombre configurado arriaba en el paso 3   
+   > poner connect
+   > acces your data trought 
+      compass
+      > i have mongodb compass installed(si ya lo tienes instalado)
+      > choose version 
+         poner la mas actual 
+      > copy the connection string
+         copia y guarda esa cadena de conexion   
+
+         jesus148: el username creado en el paso 4
+         <db_password> :contraseña creado en el paso 4
+         mongodb+srv://jesus148:<db_password>@jesus.gppah.mongodb.net/
+
+      >   dirigite al mongodbcompas interfaz en tu pc
+         > new connection y pega la url y pon connect
+
+    > cambiando la conexion en tu proyecto de express en la variables de entorno , pegar la conexion nueva de arriba
+    .env (file)
+     # MONGOATLAS , 
+     xtechnology es la bd se creara x defecto al conectarse , o en todo caso crearlo manualmente
+    en el mongodbcompas > createdabase > database name(xtechnology ) y collection name(poner temp)
+    al conectarte las colecciones se crean auto
+
+    CONNECTION_DB_MONGODB="mongodb+srv://jorgecop149:jC93rV4HEIP9xRTE@jesus.gppah.mongodb.net/xtechnology"            

@@ -110,10 +110,12 @@ Created a new tsconfig.json with:
      > controllers (logica de los metodos rest)
         > login.controller.ts
         > user.controller.ts
+        > db.validators.ts
      > database  (conexion de la bd)
          > config.ts (conexion a bd)
      > helpers (diferentes files pa autenticar y validar el codigo)
          jwtts --- validar token
+         db.validators.ts
      > midlewaleres 
         validateField.ts
         validateJWT.ts
@@ -124,9 +126,11 @@ Created a new tsconfig.json with:
      >routes (para routear los rest)
        login.router.ts
        user.routes.ts
+       product.routes.ts
     >label.ts (file para mostrar mensajes al usuario)
-  > app.js   ---ejecuta todo
-  >.env    --- varibales de entorno
+  > app.ts   ---ejecuta todo
+  >.env    --- variables de entorno verdadera
+  >.env.example --- variables de entorno ejemplo de arriba esta se sube al git
 
 
 
@@ -405,3 +409,71 @@ el id es valido pero no existe
          > regios > south america
          > luego aparecera un modal recordar esos datos del clouster
              contraseña y password
+
+
+
+17. 
+   USANDO GIT
+
+  git : herriamienta de control de versiones  , ademas herramienta donde los desarolladores  instalan localmente para 
+  gestionar el codigo fuente
+
+  gitbush : basada en la nube , los desarolladores utilizan git para poder conectarse y cargar o descargar recursos. 
+
+ MANERA BASICA========================
+ Este proyecto ya fue creado con git de manera simple osea a mi manera
+ en el .gitignore se pone esto bueno puse esto
+
+    /node_modules   --- los modulos pesan mucho se debe omitir
+    dist/          --- bueno en este caso lo omiti
+
+
+MANERA PROFESIONAL===============================
+  > Esto seria la forma de crear un repositorio de manera profesional
+  1.
+
+  creando repositorio en github :
+    > entra a github 
+    > crea tu repositorio
+    > nombre y descripcion 
+    > private
+    >añade readme
+    >añade gitignore
+    >licence > elige gnu general public licence v3
+    > create repository
+    > saldra tu repositorio ya creado en tu github pero sin codigo nada
+
+
+ 2. busca en google > git client
+   https://git-scm.com/downloads/guis   
+   > downloads y descargar para windows es basicamente git
+   > gui clients tambien puedes descargarlo es el github para escritorio
+
+  3. crea un folder en tu pc y clona la ruta del paso 1 , osea la repo vacia que tienes  
+    > dirigite a tu folder de tu back q tiene todo el codigo 
+       copia todo menos el node_modules
+    > dirigite a tu folder clonado con el repo vacio o el creado en el paso 1 y pegalo
+    > ahora el folder clonado del paso 1 tiene todo el codigo del proyecto general del back
+      usa el git add , git commit y git push y listo ya esta en tu repo remoto 
+
+  4.
+     abre el folder en vscode del folder clonado con tu codigo pegado 
+     > pon para instalar dependencias
+      npm i 
+  
+  5. 
+     ahora configuraremos el .gitignore pa omitir files q se suban al repo remoto
+    pondremos en este file
+
+    /node_modules   --- los modulos pesan mucho se debe omitir
+    .env            --- tiene data sensible no debe subirse , pa eso esta .env.example eso si sube
+    
+    > luego poner git add y git commit y git push.
+
+    6. 
+      ojo : si la carpeta ya fue pusheada y esta en tu repo remoto debera poner esto en la terminal 
+      ya fue agregada previamente al repositorio (es decir, ya fue versionada), tendrás que eliminarla del control de versiones, aunque siga existiendo localmente. Puedes hacerlo con el siguiente comando:
+      ademas ponerlo dentro del .gitignore tambien
+
+        git rm -r --cached .env    --- para un file
+        git rm -r --cached dist  --- para una carpeta
