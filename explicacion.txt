@@ -523,7 +523,9 @@ MANERA PROFESIONAL===============================
           >languaje : poner node ---depende de tu proyecto 
           > branch : segun git en este caso es master 
           > Root Directory : src      ---- donde esta la fuente
-          >Build Command :   npm i          ----- pa construir 
+          >Build Command :  npm install && npm run build      ----- pa instalar depend y transpilar al .ts
+                                                                 ponemos esto pq el folder dist no esta en el github
+                            https://docs.render.com/configure-environment-variables#adding-in-bulk-from-a-env-file(documentacion)
           >Start Command :  npm run start:prod    ----- comando inicia en produccion
           > For hobby projects
               plan free (el primero)
@@ -532,3 +534,39 @@ MANERA PROFESIONAL===============================
              puedes hacerlo manualmente o importar el file    
 
      > deply web service        
+     > espera en un momento
+     > ==> Your service is live  : todo esta listo se deployo tu proyecto 
+     >  web service 
+      .
+       .
+       https://mater-crud-api-rest-buenas-practicas.onrender.com  --- esto sera el dominio de tu back
+        con esta ruta podra probar en el postman y en el front , la ruta loca o el puerto funcionara igual
+
+    > en la misma pagina aparecera una terminal en esa terminal sera la terminal de tu proyecto pero en 
+    el servidor podras ver los errores   
+
+    > https://mater-crud-api-rest-buenas-practicas.onrender.com 
+       con eso ya puedes probar tus endpoints solo lo juntas en la parte final 
+
+
+   > ruta de los enpoints 
+   EnpointsPro.txt
+
+
+   19. 
+
+    README
+        ---- documentacion agregando esto genera un readme con estilo 
+           para la documentacion de proyecto de github 
+        https://readme.so/es --- pagina
+        > selecciona empieza ahora     
+        > selecciona > title and descripciont > el resto eliminalo en seccciones 
+        > puedes agregarlo con el  + custom select 
+          
+          ## master api con express y mongodb 
+         el proyecto de API se utiliza un control de productos y usuarios mediante una base de datos
+
+          ---poner una estructura parecida a esta puedes poner poner iconos averiguar mas
+
+        > al final copia todo ese codigo 
+        > en tu proyecto README.md > copia eso 

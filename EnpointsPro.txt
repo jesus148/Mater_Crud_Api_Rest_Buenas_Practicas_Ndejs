@@ -1,0 +1,68 @@
+
+
+---loguin 
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/login
+{
+    "username": "administrador",
+    "password": "1232344"
+}
+response
+{
+    "msg": "Inicio de Sesión exitoso",
+    "username": "administrador",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NmYzMWI4OTg4NjQ5NDgxZDlkMjg3NjkiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjcyNDQ3ODIsImV4cCI6MTcyNzI0ODM4Mn0.IUAkh3vS8dcvYfy27Gt_97GRM_DSDA-f6C8xhzw5OUQ",
+    "expiresIn": 3600
+}
+
+---create product
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/create
+{ 
+    "name":"taza",
+    "description":"porcelana",
+    "price":7.50,
+    "quantity":10, 
+    "status":"true"
+} 
+>headers > AUTHORIZATION > token 
+
+----- get all products
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/
+>headers > AUTHORIZATION > token 
+
+
+---get products x precio
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/byprice
+>headers > AUTHORIZATION > token 
+
+--- delete x id product
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/delete/66f36cfad10696ff324fc9b9
+>headers > AUTHORIZATION > token 
+response 
+{
+    "msg": "Eliminacion exitosa",
+    "id": "66f36cfad10696ff324fc9b9"
+}
+
+--- put product 
+https://mater-crud-api-rest-buenas-practicas.onrender.com/api/products/update/66f36cd7d10696ff324fc9b6 
+{ 
+    "name":"liverpool",
+    "description":"porcelana",
+    "price":7.50,
+    "quantity":10, 
+    "status":"true"
+} 
+>headers > AUTHORIZATION > token 
+response 
+{
+    "msg": "actualizacion exitosa",
+    "product": {
+        "_id": "66f36cd7d10696ff324fc9b6",
+        "name": "boock",
+        "description": "libro",
+        "price": 10.5,
+        "quantity": 5,
+        "status": "new",
+        "__v": 0
+    }
+}
