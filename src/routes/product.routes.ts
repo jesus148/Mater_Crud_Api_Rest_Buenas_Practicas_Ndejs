@@ -45,7 +45,11 @@ router.get( "/" , [
 // // postman poner : headers >  
 // //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.get("/byprice",[
-    validateJwt() //valida token , cualquier rol usuario pero q exista
+    validateJwt(), //valida token , cualquier rol usuario pero q exista  ,
+    // verificando q los campos no esten vacios
+    check('min', label.EMPTY_FIELD).not().isEmpty(),
+    check('max', label.EMPTY_FIELD).not().isEmpty(),
+    validateField
     //metodo controller 
 ] ,getProductsByPrice )
 
@@ -72,6 +76,7 @@ router.get("/byprice",[
 // //    AUTHORIZATION(key) > (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.....)token obtenido del login 
 router.post( "/create" ,[
     validateJwt("SUPER"), //valida token ,solo usuarios super o admin con rol
+
     validateField  //validando los request si hay errores
     // todo ok pasa al metodo pa crear
 ], createProduct)

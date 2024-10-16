@@ -82,6 +82,6 @@ class Login{
 
 // getModelForClass : importar del typegoose
 // osea esto para usar conjuntamente con mongoose osea interactua con la bd
-const LoginModel = getModelForClass(Login)
+const LoginModel = getModelForClass(Login);
 
 export default LoginModel //exportando el modelo

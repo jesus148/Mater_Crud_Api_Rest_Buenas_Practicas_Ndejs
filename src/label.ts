@@ -11,6 +11,7 @@ export default {
     FALIED_LOGIN:"usuario o contraseña incorrecta",
     STATUS_USER:"usuario inactivo",
     ERROR:"Error",
+    PRODUCT_REPEAT:"producto repetido",
     ERROR_TOKEN:"No se pudo generar el token",
     SUCCESFULLOGIN:"Inicio de Sesión exitoso",
     AUTHORIZATION: 'Authorization',

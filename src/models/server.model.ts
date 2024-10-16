@@ -13,6 +13,8 @@ import loguinRouter from '../routes/login.routes';
 import userRoutes from '../routes/user.routes';
 import productRouter from '../routes/product.routes';
 import cors from 'cors';
+import { matchedData, query, validationResult } from 'express-validator';
+import { errors } from '@typegoose/typegoose';
 
 class Server{
 
@@ -32,10 +34,7 @@ class Server{
 
     // inicia
     constructor(){
-
-
         // REASIGNANDO 
-
         // aplicacion express
         this.app = express();   
         
@@ -75,6 +74,30 @@ class Server{
 
     // metodo para los router
     router(){
+
+
+        // metodo de ejemplo
+        this.app.get('/get',
+            // params > query >jesus
+            // escape() : transforma en texto el js
+            query('query').notEmpty().escape(),
+        (req : Request, res : Response)=>{
+            // verifica validaciones
+                const result = validationResult(req);
+                // si todo ok
+                if(result.isEmpty()){
+
+                    // desenvolviendo la data
+                    // return res.send(`helloo ,${req.query.query}!`)
+                    
+                    // data del bodys
+                    const data = matchedData(req);//check validator ok
+                    // printer del body
+                    return res.send(`hello , ${data.query}`)
+                }
+                // si hay error
+                res.send({errors: result.array()})
+        });
 
 
         // para loguearse

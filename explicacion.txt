@@ -195,7 +195,7 @@ PS C:\Users\jesus\Desktop\JESUS\EXPRESS_PROYECTOS\1_crud_rest_limpia\backend_1> 
     "start:dev:local": "nodemon ./dist/app.js" --- agregar esto nodemon solo lee .js
   },
 
-   PARA LEVANTAR PONER ESTOS COMANDOS SIEMPRE 
+   PARA LEVANTAR PONER ESTOS COMANDOS SIEMPRE DE MANERA LOCAL
    ejecutar en terminales diferentes(cmd o poweshell) 1 el .ts y luego el nodemon
   > npm run tsc  ---ejecuta pa tranpilar el .ts al .js
      si sale error (debes como comando no encontrado debes instalar .ts)

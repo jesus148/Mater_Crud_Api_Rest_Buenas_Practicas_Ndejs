@@ -106,9 +106,21 @@ export const createProduct = async (req : Request , res: Response) =>{
     // obteniendo los request de los usuario 
     const { name , description , price , quantity , status} = req.body;
 
+    // buscando q no se repita en la bd
+    const SearchProduct = await Product.findOne({name: name})
+    
+
+    // verificando si existe
+    if(SearchProduct){
+        res.status(200).json({
+          msg:` ${label.PRODUCT_REPEAT} ${SearchProduct.name}`
+        })
+    }
+
 
     // creando la instancia 
     const product = new Product({name , description , price , quantity , status})
+
 
     // guardando o registrando 
     await  product.save();

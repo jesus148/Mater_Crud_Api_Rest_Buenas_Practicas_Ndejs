@@ -36,7 +36,11 @@ const router = Router()
 // }
 // importante te devuelve un token eso se usara en las futuras peticiones ademas dura un tiempo aproximado
 router.post('/', [
-  validateField,
+
+  // verifica si esta los campos 
+  check('username', label.EMPTY_FIELD).not().isEmpty(),
+  check('password' , label.EMPTY_FIELD).not().isEmpty(),
+  validateField //valida los request osea los check
   
 ] ,login);
 

@@ -9,7 +9,7 @@ import label from '../label';
 // cuando pide solicitud en vez de enviar usuario y contraseña , usaremos el jsonwebtoken , cuando un usuario se logea obtiene un token unico para ese usuario , luego en el head en cada solicitud le enviara eso el server lo verificara y luego le dara el pase. el token dura poco. 
 
 
-            //    el id o uid de la collecion de la tabla en mongo se recibe como parametro
+            // el id o uid de la collecion de la tabla en mongo se recibe como parametro
             // y el role 
 const getJwt = (uid : string , role : string  )=>{
 
